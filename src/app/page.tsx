@@ -4,23 +4,26 @@ import PortfolioGrid from "@/components/PortfolioGrid";
 import EditorialBlock from "@/components/EditorialBlock";
 import Footer from "@/components/Footer";
 
-import { heroSlides, portfolio, editorialFeature } from "@/content/home";
+import { heroSlides, portfolio, editorialFeature, revealSections } from "@/content/home";
 
 export default function HomePage() {
   return (
     <main className="min-h-dvh">
       <Header variant="dark" />
-      <RevealHero
-        heroDesktop={heroSlides[0].desktop}
-        heroMobile={heroSlides[0].mobile}
-        heading={heroSlides[0].heading}
-        subheading={heroSlides[0].subheading}
-        ctaText={heroSlides[0].ctaText}
-        ctaHref={heroSlides[0].ctaHref}
-        theme={heroSlides[0].theme}
-        behindImage={editorialFeature.path}
-        heightVh={200}
-      />
+      {revealSections.map((s) => (
+        <RevealHero
+          key={s.id}
+          heroDesktop={s.heroDesktop}
+          heroMobile={s.heroMobile}
+          heading={s.heading}
+          subheading={s.subheading}
+          ctaText={s.ctaText}
+          ctaHref={s.ctaHref}
+          theme={s.theme}
+          behindImage={s.behindImage}
+          heightVh={s.heightVh}
+        />
+      ))}
       <PortfolioGrid items={portfolio} />
       <EditorialBlock {...editorialFeature} />
       <Footer />
