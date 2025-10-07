@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Subtle page background */
+:root { --page-bg: 246 246 248; }
+body { background-color: rgb(var(--page-bg)); }
+
+/* Headings weight */
+h1,h2,h3 { letter-spacing: -0.01em; }
